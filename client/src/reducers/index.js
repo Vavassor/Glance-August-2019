@@ -1,7 +1,25 @@
 import {combineReducers} from "redux";
 
-const pointlessReducer = (state) => {
-  return state;
+const initialState = {
+  posts: [
+    {
+      id: "w239jf9Dd2",
+      title: "me",
+    },
+    {
+      id: "p35Fbjd94g",
+      title: "it's me, again",
+    },
+  ],
 };
 
-export default combineReducers(pointlessReducer);
+const timelineReducer = (state = initialState, action) => {
+  switch (action.type) {
+    default:
+      return state;
+  }
+};
+
+export default combineReducers({
+  timeline: timelineReducer,
+});
