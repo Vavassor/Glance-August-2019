@@ -1,4 +1,6 @@
+import {Card} from "antd";
 import React, {Component} from "react";
+import "./Timeline.css";
 
 const loadStatus = {
   FAILURE: "FAILURE",
@@ -13,16 +15,16 @@ export default class Timeline extends Component {
     
     const renderPost = (post) => {
       return (
-        <p key={post.id}>
-          {post.title}
-        </p>
+        <Card className="post" title={post.title} key={post.id}>
+          {post.content}
+        </Card>
       );
     };
 
     return (
-      <>
+      <div className="timeline">
         {posts.map(renderPost)}
-      </>
+      </div>
     );
   }
 }

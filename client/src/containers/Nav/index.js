@@ -5,17 +5,15 @@ import {Link} from "react-router-dom";
 export default class Nav extends Component {
   render() {
     return (
-      <nav>
-        <Menu mode="horizontal">
-          <Menu.Item>
-            <Link to="/">Dashboard</Link>
-          </Menu.Item>
+      <Menu mode="vertical">
+        <Menu.Item>
+          <Link to="/">Dashboard</Link>
+        </Menu.Item>
 
-          <Menu.Item>
-            <Link to="/about">About</Link>
-          </Menu.Item>
-        </Menu>
-      </nav>
+        <Menu.Item>
+          <Link to="/about">About</Link>
+        </Menu.Item>
+      </Menu>
     );
   }
 }
