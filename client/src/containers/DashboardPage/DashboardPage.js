@@ -1,4 +1,5 @@
 import {connect} from "react-redux";
+import {getPost} from "../../actions";
 import {Icon, Layout} from "antd";
 import Nav from "../Nav";
 import React, {Component} from "react";
@@ -6,6 +7,11 @@ import Timeline from "../../components/Timeline";
 import {withRouter} from "react-router-dom";
 
 class DashboardPage extends Component {
+  componentDidMount() {
+    const {dispatch} = this.props;
+    dispatch(getPost());
+  }
+
   render() {
     const {posts} = this.props;
 

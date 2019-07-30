@@ -1,27 +1,14 @@
-export const ADD_POST_FAILURE = "ADD_POST_FAILURE";
-export const ADD_POST_REQUEST = "ADD_POST_REQUEST";
-export const ADD_POST_SUCCESS = "ADD_POST_SUCCESS";
+import {CALL_API} from "../middleware/api";
 
-function addPostFailure() {
+export const GET_POST_FAILURE = "GET_POST_FAILURE";
+export const GET_POST_REQUEST = "GET_POST_REQUEST";
+export const GET_POST_SUCCESS = "GET_POST_SUCCESS";
+
+export function getPost() {
   return {
-    type: ADD_POST_FAILURE,
-  };
-}
-
-function addPostSuccess() {
-  return {
-    type: ADD_POST_SUCCESS,
-  };
-}
-
-function addPostRequest() {
-  return {
-    type: ADD_POST_REQUEST,
-  };
-}
-
-export function addPost() {
-  return (dispatch) => {
-    dispatch(addPostRequest());
+    [CALL_API]: {
+      endpoint: "post",
+      types: [GET_POST_REQUEST, GET_POST_SUCCESS, GET_POST_FAILURE],
+    },
   };
 }

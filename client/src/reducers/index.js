@@ -1,20 +1,18 @@
 import {combineReducers} from "redux";
+import * as ActionTypes from "../actions";
 
 const initialState = {
-  posts: [
-    {
-      id: "w239jf9Dd2",
-      title: "me",
-    },
-    {
-      id: "p35Fbjd94g",
-      title: "it's me, again",
-    },
-  ],
+  posts: [],
 };
 
 const timelineReducer = (state = initialState, action) => {
   switch (action.type) {
+    case ActionTypes.GET_POST_SUCCESS:
+      return {
+        posts: action.response,
+      };
+    case ActionTypes.GET_POST_REQUEST:
+    case ActionTypes.GET_POST_FAILURE:
     default:
       return state;
   }
