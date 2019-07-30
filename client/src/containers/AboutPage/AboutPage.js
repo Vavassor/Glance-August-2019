@@ -1,4 +1,4 @@
-import {Card, Layout} from "antd";
+import {Card, Icon, Layout} from "antd";
 import Nav from "../Nav";
 import React from "react";
 import "./AboutPage.css";
@@ -22,7 +22,7 @@ export default function AboutPage(props) {
         </Layout.Content>
 
         <Layout.Footer>
-          <a href="https://github.com/Vavassor/Glance">Github</a>
+          <a href="https://github.com/Vavassor/Glance"><Icon type="github" /> Github</a>
         </Layout.Footer>
       </Layout>
     </Layout>

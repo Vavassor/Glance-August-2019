@@ -1,5 +1,5 @@
 import {connect} from "react-redux";
-import {Layout} from "antd";
+import {Icon, Layout} from "antd";
 import Nav from "../Nav";
 import React, {Component} from "react";
 import Timeline from "../../components/Timeline";
@@ -25,7 +25,7 @@ class DashboardPage extends Component {
           </Layout.Content>
 
           <Layout.Footer>
-            <a href="https://github.com/Vavassor/Glance">Github</a>
+            <a href="https://github.com/Vavassor/Glance"><Icon type="github" /> Github</a>
           </Layout.Footer>
         </Layout>
       </Layout>
