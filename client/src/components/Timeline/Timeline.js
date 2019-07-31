@@ -15,7 +15,7 @@ export default class Timeline extends Component {
     
     const renderPost = (post) => {
       return (
-        <Card className="post" title={post.title} key={post.id}>
+        <Card className="post" title={post.title} key={post._id}>
           {post.content}
         </Card>
       );

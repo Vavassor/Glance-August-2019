@@ -2,9 +2,9 @@ const API_ROOT = "/api/"
 
 export const CALL_API = "Call API";
 
-function makeCall(endpoint) {
+function makeCall(endpoint, options) {
   const url = API_ROOT + endpoint;
-  return fetch(url)
+  return fetch(url, options)
     .then(response => response.json());
 }
 
@@ -15,11 +15,19 @@ export default store => next => action => {
     return next(action);
   }
 
-  let {endpoint} = callApi;
-  const {types} = callApi;
+  let headers = {};
+  let {body, endpoint} = callApi;
+  const {method, types} = callApi;
 
   if (typeof endpoint === "function") {
     endpoint = endpoint(store.getState());
+  }
+
+  if (body) {
+    body = JSON.stringify(body);
+    headers = {
+      "Content-Type": "application/json",
+    };
   }
 
   const actionWith = (data) => {
@@ -31,7 +39,14 @@ export default store => next => action => {
   const [requestType, successType, failureType] = types;
   next(actionWith({type: requestType}));
 
-  return makeCall(endpoint)
+  return makeCall(
+      endpoint,
+      {
+        body: body,
+        headers: headers,
+        method: method,
+      }
+    )
     .then(
       response => next(actionWith({
         response,
