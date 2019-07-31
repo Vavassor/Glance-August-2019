@@ -1,7 +1,8 @@
 const postController = require("../../controllers/postController");
-const router = require("express").Router({mergeParams: true});
+const router = require("express").Router();
 
 router.route("/")
-  .get(postController.getAllPosts);
+  .get(postController.getAllPosts)
+  .post(postController.validateCreate, postController.create);
 
 module.exports = router;
