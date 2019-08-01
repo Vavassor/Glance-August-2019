@@ -1,10 +1,11 @@
+import ComposeForm from "../ComposeForm";
 import {connect} from "react-redux";
 import {getPost} from "../../actions";
 import {Icon, Layout} from "antd";
 import Nav from "../Nav";
 import React, {Component} from "react";
 import Timeline from "../../components/Timeline";
-import {withRouter} from "react-router-dom";
+import {Link, withRouter} from "react-router-dom";
 
 class DashboardPage extends Component {
   componentDidMount() {
@@ -27,11 +28,12 @@ class DashboardPage extends Component {
           </Layout.Header>
 
           <Layout.Content className="layout-content">
+            <ComposeForm />
             <Timeline posts={posts} />
           </Layout.Content>
 
           <Layout.Footer>
-            <a href="https://github.com/Vavassor/Glance"><Icon type="github" /> Github</a>
+            <Link to="https://github.com/Vavassor/Glance"><Icon type="github" /> Github</Link>
           </Layout.Footer>
         </Layout>
       </Layout>
