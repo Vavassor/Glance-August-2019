@@ -1,6 +1,7 @@
 import {Card, Icon, Layout} from "antd";
 import Nav from "../Nav";
 import React from "react";
+import {Link} from "react-router-dom";
 import "./AboutPage.css";
 
 export default function AboutPage(props) {
@@ -17,12 +18,12 @@ export default function AboutPage(props) {
         
         <Layout.Content className="layout-content">
           <Card className="about-card" title="About">
-            <p>This is a site.</p>
+            <p>Glance is a social media network app for sharing media and art. The project is open source and you can contribute to the project on <Link to="https://github.com/Vavassor/Glance">Github</Link>.</p>
           </Card>
         </Layout.Content>
 
         <Layout.Footer>
-          <a href="https://github.com/Vavassor/Glance"><Icon type="github" /> Github</a>
+          <Link to="https://github.com/Vavassor/Glance"><Icon type="github" /> Github</Link>
         </Layout.Footer>
       </Layout>
     </Layout>
